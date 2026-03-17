@@ -1,0 +1,361 @@
+* {
+    /* seletor universal! */
+    margin: 0;
+    padding-top: 0;
+    box-sizing: border-box;
+    /* Defino que o tamanho da caixa é definida pela borda dela, nao importando os paddings que tem entro */
+    letter-spacing: 1px;
+    font-family: "Inter";
+    line-height: 170%; /* Espaçamento entrelinhasss*/
+    
+}
+legend {
+    font-size: 14px;
+    line-height: 140%;
+}
+h3 {
+    font-size: 16px;
+    display: flex;
+    align-items: center; /*Alinhando o losango verticalmente ao texto*/
+    gap: 10px; /* espaçamento entre o losango e o texto */
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Criando o losango amarelo antes do texto do H3 */
+h3::before {
+    content: "◆"; /* símbolo do losango. O content funciona somente com os seletores ::before e ::after*/
+    color: #f0e68c;
+    font-size: 12px;
+    text-shadow:0 0 10px rgba(240, 230, 140, 0.8), 
+                0 0 20px rgba(240, 230, 140, 0.4);
+    flex-shrink: 0;
+}
+
+
+/* --------------------- HEADER ----------------------*/
+header {
+    padding-top: 0;
+    /* Definição do espaçamento INTERNO superior */
+    margin-top: 0;
+    text-align: center;
+    /* A imagem é tratada como texto, por isso seu alinhamento foi feito aqui */
+    margin-bottom: -20px;
+}
+
+header img {
+    /* Indico que eu quero mexer na IMAGEM que está dentro da tag HEADER */
+    display: block; /* Remove o espaço fantasma de elementos inline */
+    margin: 0 auto;
+    padding-top: 0;
+    width: 23rem;
+    
+}
+
+/* --------------------- BODY ----------------------*/
+body {
+    background-image: url("./imagens/bg.jpg");
+    background-repeat: no-repeat; /* IMPEDE a repetição que cria a linha */
+    background-size: cover;       /* FAZ a imagem esticar para cobrir tudo */
+    background-attachment: fixed; /* MANTÉM o fundo parado enquanto você rola a página */
+    background-position: center;  /* CENTRALIZA a imagem */
+    color: white;
+    padding-bottom: 40px;
+}
+
+main { /* Bloco que envolve as divs / section */
+    max-width: 40rem;
+    width: 80%;
+    margin: auto;
+    
+}
+
+/* --------------------- SECTIONS ----------------------*/
+section {/* Parte colorida fora do quadrado principal do conteúdo */
+    background-image: linear-gradient(90deg, #8963fa 0%, #5adfb0 50%, #fff174 100%);
+    border-radius: 0.625rem;
+    padding-top: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+}
+
+section>div { /* Bloco preto em que há o conteudo! */
+    /* o > faz com que a gente selecione a DIV dentro da tag section */
+    padding: 2rem;
+    padding-top: 2rem;
+    border-radius: 0.4rem;
+    background-color: #202020;
+}
+
+
+form {
+    display: flex;
+    /* Os elementos dentro do forms ficam um do lado do outro*/
+    gap: 0.85rem;
+    /* Espaço entre os elementos*/
+    flex-wrap: wrap;
+    /* Determino que eu quero que o elementos fiquem para baixo e nao ultrapasse o limite da box*/
+    margin: 0.5rem;
+}
+
+/* ------------------ SELECIONE UM GENERO --------------*/
+.select-container{  /* Botao das opções de seleção de genero */
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.select-gen { /* Opções de genero! */
+    width: 100%;
+    appearance: none; /* Remove a seta padrão do navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    cursor: pointer;
+    padding: 8px;
+    border-radius:  0.4rem;
+    border: 2px solid #8a2be2;
+    background-color:#00000066;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+
+
+/* Efeito de Hover e Foco */
+.select-gen:hover, .select-gen:focus {
+    background-color: #00000066;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.4);
+    border-color: #f0e68c; /* Amarelo da estrela */
+}
+
+/* Estilização das opções */
+.select-gen option {
+    background-color: #1f1942; /* Fundo escuro para combinar com o universo */
+    color: white;
+    padding: 10px;
+}
+
+/* Criando uma nova seta personalizada com CSS */
+.select-container::after {
+    content: '▼';
+    font-size: 12px;
+    color: #f0e68c;
+    position: absolute;
+    right: 15px;
+    top: 70%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Deixa o clique passar para o select */
+}
+
+/* --------------------- OPÇÃO COM CHECKBOOOOOOOOOX  ----------------------*/
+/* Esconde o checkbox original */
+.temas-container input[type="checkbox"] {
+    display: none;
+}
+
+/* Mexendo na disposição dos checkbox de "temas preferidos" e "temas que evita" */
+.temas-container {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 7px;   
+}
+
+/* Estilização do Label (o "botão") CHECKBOXXXX */
+.temas-container label {
+    background-color: #00000066;
+    cursor:context-menu;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 2px solid #8a2be2; /* Roxo da Lumi */
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Efeito de Hover (passar o mouse) CHECKBOXXXX*/
+.temas-container label:hover {
+    background-color: rgba(138, 43, 226, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Estado Selecionado (Checkbox marcado) CHECKBOXXXX*/
+.temas-container input[type="checkbox"]:checked + label {
+    background: linear-gradient(90deg, #8a2be2, #4b0082); /* Degradê roxo */
+    border-color: #f0e68c; /* Destaque em amarelo claro */
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+    font-weight: bold;
+}
+
+/* ------------------ OPÇÃO COM RADIOOOOOO  --------------*/
+.radio-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Cria duas colunas de tamanhos iguais (fr = fraction), assim consigo deixar as opções ALINHADAS*/
+    margin: 5px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre a bolinha e o texto dela */
+}
+
+/* Mantendo a bolinha perfeita */
+input[type="radio"] {
+    all: unset; /* Reseta estilos que podem estar conflitando */
+    flex-shrink: 0; /* Impede que o grid esmague a bolinha */
+    width: 12px;
+    height: 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid #8a2be2;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+input[type="radio"]:checked {
+    background: linear-gradient(90deg, #5adfb0, #E2D45C);
+    border-color: #8a2be2;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.input-api{
+    all: unset;
+    /*Tiro todas as configurações feitas previamente pelo navegador*/
+    border: 2px solid #8a2be2;
+    border-radius: 0.5rem;
+    /*Arredondamento das bordas*/
+    padding: 0.5em;
+    /*Preenchimento interno*/
+    font-size: 0.875rem;
+    background-color: #00000066; 
+    width: 100%; 
+    max-width: 600px; 
+    box-sizing: border-box; 
+    
+    margin-top: 10px;
+    flex: 1;
+    margin-left: 0;
+    padding-left: 10px;
+}
+
+
+input
+{
+    all: unset;
+    /*Tiro todas as configurações feitas previamente pelo navegador*/
+    border: 2px solid #8a2be2;
+    border-radius: 0.5rem;
+    /*Arredondamento das bordas*/
+    padding: 0.5em;
+    /*Preenchimento interno*/
+    font-size: 0.875rem;
+    background-color: #00000066; 
+    width: 240px;
+    margin: 5px; /*crio uma margem entre os inputs*/
+    flex: 1;
+    margin-left: 0;
+    padding-left: 10px;
+}
+
+
+/* ------------------ BUTTONNSSSS --------------*/
+button { /* Nessa tag eu quis criar um design geral para todos os botoes de perguntas etc*/
+    width: 80%;
+    font-family: "Inter";
+    text-align: center;
+    border: 0;
+    background-image: linear-gradient(245deg, #9572fc 0%, #43E7AD 50%, #E2D45C 100%);
+    padding: 0.300rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    
+}
+
+.button-group{
+    display: flex;
+    flex-direction: column; /* Um abaixo do outro */
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-reset {
+    /* Reseta o degradê do botão principal */
+    background-image: none !important; 
+    background-color: transparent;
+    margin-top: 20px;
+    /* Estilo minimalista */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borda clarinha e discreta */
+    color: rgba(255, 255, 255, 0.6); /* Texto esmaecido */
+    
+    width: auto; /* Não precisa ocupar 80% como o principal */
+    padding: 8px 20px;
+    font-size: 0.75rem; /* Um pouco menor que o principal */
+    text-transform: none; /* Remove o uppercase para parecer menos agressivo */
+    box-shadow: none;
+}
+.btn-reset:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Brilho bem leve ao passar o mouse */
+    color: white;
+    border-color: #8a2be2; /* Cor roxa da Lumi no hover */
+    transform: none; /* Tira o pulinho de 2px para ser mais sóbrio */
+    box-shadow: none;
+}
+
+/*Definir como o mouse vai se comportar quando o cursor passar por cima do botao*/
+button:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    /*animação para que o botao vá 2px pra cima*/
+    box-shadow: 0 5px 1rem rgba(255, 248, 107, 0.2);
+    /*essa propriedade cria uma sombra no botao que aparece quando passamos o mouse em cima. o RGBA significa que vamos ter a cor red, blue, green e alfa*/
+}
+
+button:disabled {
+    transition: initial;
+    transform: initial;
+    box-shadow: initial;
+    cursor: not-allowed;
+    color: black;
+}
+
+#aiResponse {
+    background: rgba(0, 0, 0, 0);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    border-left: 4px solid #43E7AD;
+}
+#aiResponse ul {
+    padding-left: 1.5rem;
+    opacity: 0.8;
+}
+#aiResponse p {
+    color: white;
+}
+.loading {
+    animation: pulse 1s infinite;
+}
+
+.hidden {
+    display: none;
+}
+@keyframes pulse {
+    50% {
+        opacity: 0.5;
+    }
+}

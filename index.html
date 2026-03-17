@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Definindo que vou procurar recursos do dominio fonts.googleapis.com-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--Faz a mesma coisa que o anterior, mas para o domínio onde os arquivos das fontes -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumi - Indicação Literária</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="imagens/logotipo.png" alt="Logo lumi">
+    </header>
+
+    <main>
+        <form id="form">
+        <section>
+            <div>
+                <h1>Lumi - Assistente Literário</h1>
+                    <legend>Informe sua preferência literária atual e suas considerações sobre leituras já feitas para ter novas indicações de leitura!</legend>
+
+                    <input id="apiKey" type="password" placeholder="Digite a API KEY do Gemini" required class="input-api" >
+
+                    <div class="select-container">
+                        <h3>Gênero de sua escolha: </h3>
+                        <select class="select-gen" id="selectGen">
+                            <option value="">Selecione um Gênero</option>
+                            <option value="drama">Drama</option>
+                            <option value="fantasia">Fantasia</option>
+                            <option value="ficcao">Ficção Científica</option>
+                            <option value="lgbt">LGBT</option>
+                            <option value="romance">Romance</option>
+                            <option value="suspense">Suspense/Policial</option>
+                            <option value="terror">Terror</option>
+                            <option value="thriler">Thriler</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    
+                        <h3>Temas preferidos: </h3>
+                        <div class="temas-container" id="temasPreferidos">
+                            <input type="checkbox" id="amizade">
+                            <label for="amizade">Amizade</label>
+                            
+                            <input type="checkbox" id="biografia"> 
+                            <label for="biografia">Biografia</label>
+
+                            <input type="checkbox" id="fatosreais"> 
+                            <label for="fatosreais">Fatos Reais</label>
+
+                            <input type="checkbox" id="guerra"> 
+                            <label for="guerra">Guerra</label>
+
+                            <input type="checkbox" id="magia">
+                            <label for="magia">Magia</label>
+                            
+                            <input type="checkbox" id="plot"> 
+                            <label for="plot">Plot Twist</label>
+
+                            <input type="checkbox" id="thriler">
+                            <label for="thriler">Thriler Psicológico</label>
+
+                            <input type="checkbox" id="policial"> 
+                            <label for="policial">Policial</label>
+                            
+                            <input type="checkbox" id="outro"> 
+                            <label for="outro">Outros</label>
+                        </div>
+
+                        <h3>Temas que evita: </h3>
+                        <div class="temas-container" id="temasEvita">
+                            <input type="checkbox" id="autoajuda">
+                            <label for="autoajuda">Autoajuda</label>
+
+                            <input type="checkbox" id="biog"> 
+                            <label for="biog">Biografia</label>
+
+                            <input type="checkbox" id="finaistristes"> 
+                            <label for="finaistristes">Finais Tristes</label>
+
+                            <input type="checkbox" id="violencia">
+                            <label for="violencia">Violência</label>
+
+                            <input type="checkbox" id="religiao"> 
+                            <label for="religiao">Religião</label>
+
+                            <input type="checkbox" id="outros"> 
+                            <label for="outros">Outros</label>
+                        </div>
+
+                        <h3>Você está em busca de: </h3>
+                        <div class="radio-container">
+                            <div class="radio-item">
+                                <input type="radio" id="introspeccao" name="busca" checked>
+                                <label for="introspeccao">Mais Introspecção</label>
+                            </div>    
+                            <div class="radio-item">  
+                                <input type="radio" id="acao" name="busca" checked>
+                                <label for="acao" class="radio-container">Mais Ação</label>
+                            </div> 
+                        </div>  
+            
+                        <div class="radio-container">
+                            <div class="radio-item">
+                                <input type="radio" id="rapido" name="ritmo" checked>
+                                <label for="rapido">Ritmo Rápido</label>
+                            </div> 
+                            <div class="radio-item">
+                                <input type="radio" id="lento" name="ritmo" checked>
+                                <label for="lento" class="radio-container">Ritmo Lento</label> 
+                            </div>
+                        </div>
+
+                        <h3>Cite um livro bom, médio e ruim do gênero escolhido:</h3>
+                        <input type="text" id="livroBom" placeholder="Nome de um Livro Bom">
+                        <input type="text" id="livroMedio" placeholder="Nome de um Livro Médio">
+                        <input type="text" id="livroRuim" placeholder="Nome de um Livro Ruim">
+
+                    <div class="button-group">
+                        <button type="submit">Pedir Sugestões para Lumi</button>
+                        <button type="reset" class="btn-reset">Limpar Filtros</button>
+                    </div>
+                </form>
+                <div id="aiResponse" class="hidden">
+                    <div class="response-content">
+            </div>
+        </section>
+        
+    </main>
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>
